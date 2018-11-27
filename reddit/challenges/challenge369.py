@@ -47,3 +47,24 @@ def hex_converter(r_value, g_value, b_value):
     return '#{:02x}{:02x}{:02x}'.upper().format(values[0], values[1], values[2])
 
 
+# helper function for combiner
+def avg(num_list):
+    average = sum(num_list)/len(num_list)
+    return average
+
+
+def hex_combiner(hex_value_1, hex_value_2):
+    hex_value_1 = hex_value_1[1:]
+    hex_value_2 = hex_value_2[1:]
+
+    hex_r_value = int(avg([int(hex_value_1[:2], 16), int(hex_value_2[:2], 16)]))
+    hex_g_value = int(avg([int(hex_value_1[2:4], 16), int(hex_value_2[2:4], 16)]))
+    hex_b_value = int(avg([int(hex_value_1[4:], 16), int(hex_value_2[4:], 16)]))
+
+    blended_hex_list = [hex_r_value, hex_g_value, hex_b_value]
+
+    blended_hex = '#{:02x}{:02x}{:02x}'.upper().format(blended_hex_list[0], blended_hex_list[1], blended_hex_list[2])
+
+    return blended_hex
+
+
