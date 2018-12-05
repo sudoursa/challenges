@@ -15,6 +15,19 @@ def test_anadrome_validator(user_input):
     assert result == expected_result
 
 
+@pytest.mark.parametrize('user_input', ["badvalue", "anotherbadentry", "wrong", ])
+def test_anadrome_validator_with_bad_entries(user_input):
+    # given
+    user_input = user_input
+
+    # when
+    result = anadrome_validator(user_input)
+
+    # then
+    expected_result = False
+    assert result == expected_result
+
+
 def test_anadrome_finder():
     # given
     user_input = "solosolo"
