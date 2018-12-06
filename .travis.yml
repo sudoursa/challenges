@@ -1,4 +1,7 @@
 language: python
+python:
+  - "3.6"
+
 
 branches:
   only:
@@ -9,4 +12,4 @@ install:
   - pip install -r requirements-tests.txt
   
 script:
-  - pytest
+  - python -m pytest
